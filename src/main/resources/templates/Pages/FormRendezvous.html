@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>Nouveau Rendezvous</title>
+  </head>
+  <body>
+ 
+    
+  
+  
+   <form class="row g-3" method="post" th:object="${rendezvous}" th:action="@{/createrdv}">
+   <div class="col-md-6">
+    <label for="inputfid" class="form-label">ID </label>
+    <input type="text" class="form-control" id="inputfid" th:field="${rendezvous.id}"></input>
+  </div>
+   
+  <div class="col-md-6">
+    <label for="inputfdate" class="form-label">Date du rendezvous</label>
+    <input type="text" class="form-control" id="inputdate" th:field="${rendezvous.dateRdvz}"></input>
+  </div>
+  <div class="col-md-6">
+    <label for="inputnm" class="form-label"> Nom du Medecin </label>
+    <input type="text" class="form-control" id="inputnm" th:field="${rendezvous.nomMedecin}"></input>
+    
+  </div>
+
+
+    <div class="col-md-6">
+    <label for="inputville" class="form-label"> Nom du patient </label>
+    <input type="text" class="form-control" id="inputnp" th:field="${rendezvous.nomPatient}"></input>
+  </div>
+  <div class="col-12">
+  
+  
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Add</button>
+  </div>
+</form>
+ <div align="center">
+    
+    <table border="1" cellpadding="10" class="table table-striped">
+        <thead>
+            <tr>
+                
+                <th>ID</th>
+                <th>Date du rendezvous</th>
+                <th>Nom du Medecin </th>
+                <th>Nom du patient</th>
+               
+                
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                
+                <td th:text="${rendezvous.id}">ID</td>
+                <td th:text="${rendezvous.dateRdvz}">Date du rendezvous</td>
+                <td th:text="${rendezvous.nomMedecin}">Nom du Medecin</td>
+                <td th:text="${rendezvous.nomPatient}">Nom du patient</td>
+                
+                
+                <td>
+                    <a th:href="@{'/get?id=' + ${rendezvous.id}}">Edit</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/delete?id=' + ${rendezvous.id}}">Delete</a>
+                </td>
+            </tr>
+
+
+     
+   
+   
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

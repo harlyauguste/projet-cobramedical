@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>La liste des Rendezvous</title>
+  </head>
+  <body>
+  <div align="center">
+    
+    
+<table class="table table-dark table-sm">
+  
+
+        <thead>
+            <tr>
+                
+               <th>ID</th>
+                <th>Date du rendezvous</th>
+                <th>Nom du Medecin </th>
+                <th>Nom du patient</th>
+                
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="rendezvous : ${listRendezvous}">
+                
+           <td th:text="${rendezvous.id}">ID</td>
+                <td th:text="${rendezvous.dateRdvz}">Date du rendezvous</td>
+                <td th:text="${rendezvous.nomMedecin}">Nom du Medecin</td>
+                <td th:text="${rendezvous.nomPatient}">Nom du patient</td>
+              
+                
+                <td>
+                    <a th:href="@{'/get?id=' + ${rendezvous.id}}">Edit</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/delete?id=' + ${rendezvous.id}}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+   </table>
+    </div>  
+     
+  
+  </html>
